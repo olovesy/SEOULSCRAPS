@@ -1,0 +1,533 @@
+:root {
+  --paper: #e9dfc8;
+  --ink: #171713;
+  --red: #f13724;
+  --blue: #2452ff;
+  --yellow: #edff33;
+  --white: #fffdf3;
+  --torn-edge: polygon(2% 1%, 8% 0, 13% 2%, 20% .5%, 27% 2%, 34% 0,
+      41% 1.5%, 48% 0, 55% 2%, 62% .5%, 70% 2%, 77% 0,
+      84% 1.5%, 91% 0, 98% 2%, 100% 8%, 98% 15%, 100% 23%,
+      98% 31%, 100% 40%, 98% 49%, 100% 58%, 98% 67%, 100% 76%,
+      98% 85%, 100% 93%, 97% 99%, 90% 98%, 83% 100%, 76% 98%,
+      69% 100%, 62% 98%, 55% 100%, 48% 98%, 41% 100%, 34% 98%,
+      27% 100%, 20% 98%, 13% 100%, 6% 98%, 0 94%, 2% 86%,
+      0 78%, 2% 70%, 0 61%, 2% 52%, 0 43%, 2% 34%, 0 25%,
+      2% 17%, 0 9%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: radial-gradient(rgba(0, 0, 0, .1) .7px, transparent .7px);
+  background-size: 7px 7px;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+#header {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 86px;
+  padding: 14px clamp(20px, 4vw, 64px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--ink);
+  background: rgba(233, 223, 200, .91);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font: 900 22px/.77 var(--font-mono);
+  letter-spacing: -2px;
+  transform: rotate(-3deg);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 3vw, 48px);
+}
+
+.nav a {
+  font: 700 13px var(--font-mono);
+  border-bottom: 2px solid transparent;
+}
+
+.nav a:hover {
+  border-color: var(--ink);
+}
+
+.nav .nav-point {
+  padding: 10px 16px;
+  background: var(--red);
+  color: white;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(1deg);
+}
+
+.menu-button {
+  display: none;
+  border: 2px solid var(--ink);
+  background: var(--yellow);
+  padding: 8px 11px;
+  font-weight: 900;
+}
+
+#banner {
+  position: relative;
+  min-height: 100vh;
+  padding: 150px clamp(20px, 5vw, 80px) 70px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+  align-items: center;
+  gap: 10px;
+  border-bottom: 3px solid var(--ink);
+}
+
+.eyebrow {
+  font: 700 12px var(--font-mono);
+  letter-spacing: .08em;
+}
+
+.banner-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-copy h1 {
+  margin: 18px 0 20px;
+  font: 400 clamp(58px, 8vw, 125px)/.88 var(--font-display);
+  letter-spacing: -.06em;
+}
+
+.banner-copy h1 em {
+  display: inline-block;
+  padding: 0 .12em;
+  color: var(--white);
+  background: var(--blue);
+  font-style: normal;
+  transform: rotate(-2deg);
+}
+
+.intro {
+  max-width: 410px;
+  margin: 0 0 36px;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.sticker-button {
+  display: inline-block;
+  padding: 15px 24px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 5px 5px 0 var(--ink);
+  font-weight: 900;
+  transform: rotate(-2deg);
+  transition: .2s;
+}
+
+.sticker-button:hover {
+  transform: rotate(2deg) translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.banner-collage {
+  position: relative;
+  min-height: 590px;
+}
+
+.torn-paper {
+  padding: 12px;
+  background: var(--white);
+  clip-path: var(--torn-edge);
+  filter: drop-shadow(8px 10px 0 rgba(0, 0, 0, .24));
+}
+
+.photo-wrap {
+  position: absolute;
+}
+
+.photo-building-wrap {
+  inset: 6% 5% 26% 6%;
+  transform: rotate(5deg);
+}
+
+.photo-sign-wrap {
+  z-index: 2;
+  width: 48%;
+  height: 45%;
+  left: -5%;
+  bottom: 4%;
+  transform: rotate(-8deg);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  clip-path: var(--torn-edge);
+}
+
+.photo-building {
+  background-image: linear-gradient(145deg, transparent 0 68%, rgba(255, 59, 34, .42) 68%), url('images/hongdae-playground.jpeg');
+}
+
+.photo-sign {
+  background-image: url('images/seoul-museum.jpeg');
+}
+
+.paper-note {
+  position: absolute;
+  z-index: 3;
+  right: -2%;
+  bottom: 11%;
+  padding: 22px 25px;
+  background: var(--white);
+  border: 1px solid #aaa;
+  box-shadow: 4px 5px 0 rgba(0, 0, 0, .2);
+  font: 21px/1.2 var(--font-handwriting);
+  transform: rotate(8deg);
+}
+
+.burst {
+  position: absolute;
+  z-index: 4;
+  right: -4%;
+  top: 0;
+  display: grid;
+  place-content: center;
+  width: 145px;
+  aspect-ratio: 1;
+  text-align: center;
+  color: white;
+  background: var(--red);
+  clip-path: polygon(50% 0, 61% 29%, 84% 9%, 79% 39%, 100% 50%, 71% 61%, 91% 84%, 61% 79%, 50% 100%, 39% 71%, 16% 91%, 21% 61%, 0 50%, 29% 39%, 9% 16%, 39% 21%);
+  font: 900 18px/1.05 var(--font-mono);
+  transform: rotate(8deg);
+}
+
+.tape {
+  position: absolute;
+  z-index: 5;
+  width: 110px;
+  height: 30px;
+  background: rgba(237, 255, 51, .78);
+}
+
+.tape-one {
+  top: 7%;
+  left: 18%;
+  transform: rotate(-10deg);
+}
+
+.tape-two {
+  right: 10%;
+  bottom: 28%;
+  transform: rotate(82deg);
+}
+
+.scribble {
+  position: absolute;
+  z-index: 4;
+  left: -8%;
+  top: 16%;
+  color: var(--blue);
+  font: 700 27px/.9 var(--font-handwriting);
+  transform: rotate(-12deg);
+}
+
+.scroll-note {
+  position: absolute;
+  bottom: 24px;
+  right: 5vw;
+  font: 700 11px var(--font-mono);
+}
+
+#contents {
+  padding: 110px clamp(20px, 5vw, 80px) 150px;
+  background: var(--white);
+  border-bottom: 3px solid var(--ink);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: .7fr 1.4fr .8fr;
+  gap: 30px;
+  align-items: end;
+  margin-bottom: 95px;
+}
+
+.section-heading p,
+.section-heading span {
+  font: 600 12px/1.7 var(--font-mono);
+}
+
+.section-heading h2 {
+  margin: 0;
+  font: 400 clamp(52px, 7vw, 106px)/.9 var(--font-display);
+  letter-spacing: -.06em;
+}
+
+.scrap-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  row-gap: 90px;
+}
+
+.scrap-card {
+  position: relative;
+}
+
+.scrap-card a {
+  display: block;
+}
+
+.card-one {
+  grid-column: 1 / 7;
+  transform: rotate(-2deg);
+}
+
+.card-two {
+  grid-column: 8 / 13;
+  margin-top: 130px;
+  transform: rotate(2.5deg);
+}
+
+.card-three {
+  grid-column: 3 / 10;
+  transform: rotate(-1deg);
+}
+
+.card-image-wrap {
+  height: 430px;
+  padding: 11px;
+  transition: transform .25s ease;
+}
+
+.scrap-card a:hover .card-image-wrap {
+  transform: rotate(1.5deg) translateY(-5px);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: saturate(.75) contrast(1.08);
+  clip-path: var(--torn-edge);
+}
+
+.image-store {
+  background-image: url('images/hongdae-playground.jpeg');
+}
+
+.image-person {
+  background-image: url('images/seoul-museum.jpeg');
+}
+
+.image-letter {
+  background-image: url('images/unknown-seoul.jpeg');
+}
+
+.card-number {
+  position: absolute;
+  top: -38px;
+  right: -25px;
+  display: grid;
+  place-content: center;
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--yellow);
+  font: 900 24px var(--font-mono);
+}
+
+.card-copy {
+  position: relative;
+  width: 90%;
+  margin: -35px auto 0;
+  padding: 20px 25px 24px;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 6px 7px 0 var(--ink);
+}
+
+.card-copy small {
+  font: 700 11px var(--font-mono);
+}
+
+.card-copy h3 {
+  margin: 8px 0;
+  font-size: clamp(22px, 2.5vw, 37px);
+  line-height: 1.15;
+}
+
+.card-copy p {
+  margin: 0;
+  font-size: 14px;
+}
+
+#neighborhood {
+  padding: 100px clamp(20px, 5vw, 80px) 120px;
+  color: var(--white);
+  background: var(--blue);
+  border-bottom: 3px solid var(--ink);
+}
+
+#neighborhood h2 {
+  margin: 24px 0 60px;
+  font: 400 clamp(50px, 7vw, 105px)/.92 var(--font-display);
+  letter-spacing: -.05em;
+}
+
+.neighborhood-list {
+  border-top: 2px solid var(--white);
+}
+
+.neighborhood-list a {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  align-items: center;
+  padding: 22px 8px;
+  border-bottom: 2px solid var(--white);
+  font-size: clamp(28px, 4vw, 60px);
+  font-weight: 900;
+  transition: .2s;
+}
+
+.neighborhood-list a:hover {
+  padding-left: 25px;
+  color: var(--ink);
+  background: var(--yellow);
+}
+
+.neighborhood-list span,
+.neighborhood-list small {
+  font: 700 11px var(--font-mono);
+}
+
+#submit {
+  position: relative;
+  padding: 140px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+#submit p {
+  font-weight: 800;
+}
+
+#submit h2 {
+  margin: 15px auto 45px;
+  font: 400 clamp(54px, 9vw, 135px)/.88 var(--font-display);
+  letter-spacing: -.06em;
+}
+
+#submit h2 em {
+  color: var(--red);
+  font-style: normal;
+}
+
+#submit>a {
+  display: inline-block;
+  padding: 18px 25px;
+  border: 2px solid var(--ink);
+  color: var(--white);
+  background: var(--ink);
+  font-weight: 900;
+}
+
+.submit-stamp {
+  position: absolute;
+  top: 60px;
+  left: 7%;
+  display: grid;
+  place-content: center;
+  width: 130px;
+  height: 130px;
+  border: 4px double var(--red);
+  border-radius: 50%;
+  color: var(--red);
+  font: 900 16px/1.1 var(--font-mono);
+  transform: rotate(-12deg);
+}
+
+#footer {
+  min-height: 240px;
+  padding: 48px clamp(20px, 5vw, 80px);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 30px;
+  color: var(--white);
+  background: var(--ink);
+}
+
+#footer strong {
+  font: 900 clamp(36px, 6vw, 84px)/1 var(--font-mono);
+  letter-spacing: -.07em;
+}
+
+#footer p {
+  margin: 8px 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  align-items: start;
+  font: 700 12px var(--font-mono);
+}
+
+.photo-credits {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding-top: 20px;
+  border-top: 1px solid #555;
+  font: 500 10px/1.6 var(--font-mono);
+  color: #bbb;
+}
+
+.photo-credits a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.photo-credits a:hover {
+  color: var(--yellow);
+}
+
+#footer>small {
+  grid-column: 1 / -1;
+  align-self: end;
+  font-family: var(--font-mono);
+}
