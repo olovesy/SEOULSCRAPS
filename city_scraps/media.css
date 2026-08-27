@@ -1,0 +1,110 @@
+/* 태블릿 및 모바일 */
+@media (max-width: 800px) {
+  #header {
+    min-height: 70px;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--paper);
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  #banner {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    padding-top: 125px;
+  }
+
+  .banner-copy h1 {
+    font-size: clamp(51px, 15vw, 86px);
+  }
+
+  .banner-collage {
+    min-height: 480px;
+    margin-top: 35px;
+  }
+
+  .photo-building-wrap {
+    inset: 5% 3% 20% 8%;
+  }
+
+  .photo-sign-wrap {
+    left: 0;
+  }
+
+  .paper-note {
+    right: 1%;
+    font-size: 18px;
+  }
+
+  .scribble {
+    left: 0;
+  }
+
+  .section-heading {
+    grid-template-columns: 1fr;
+    margin-bottom: 70px;
+  }
+
+  .section-heading span {
+    max-width: 330px;
+  }
+
+  .scrap-grid {
+    display: block;
+  }
+
+  .scrap-card {
+    margin: 0 0 95px;
+    transform: none;
+  }
+
+  .card-image-wrap {
+    height: 330px;
+  }
+
+  .neighborhood-list a {
+    grid-template-columns: 40px 1fr;
+  }
+
+  .neighborhood-list small {
+    display: none;
+  }
+
+  .submit-stamp {
+    opacity: .55;
+    top: 35px;
+    left: -25px;
+  }
+
+  #footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 움직임 최소화 설정을 사용하는 사용자 배려 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
